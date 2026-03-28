@@ -1,3 +1,4 @@
+
 #display{
     display:block;
     text-align: center;
@@ -36,4 +37,43 @@ body{
 
 #myLabel{
     font-size: 3em;
+}
+
+
+form{
+    background-color: aquamarine;
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px;
+}
+
+#textbox {
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+button{
+    margin-top: 15px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(136, 136, 136);
+}
+
+
+#res{
+    font-size: 1.5em;
 }
