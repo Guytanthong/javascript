@@ -90,3 +90,119 @@ function convert(){
         res.textContent= "select a unit"
     }
 }
+
+//dice roller
+
+function rollDice(){
+    const numofDice = document.getElementById("numofDice").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceimgs = document.getElementById("diceimgs");
+    const values =[];
+    const images = [];
+    
+    for(let i = 0; i < numofDice; i++){
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value);
+        images.push(`<img src="../imgs/${value}.png" alt ="Dice ${value}">`);
+    }
+
+    diceResult.textContent = `dice: ${values.join(', ')}`;
+    diceimgs.innerHTML = images.join('');
+
+}
+
+//password generator
+
+function generatePassword(length,includeLowercase,includeUppercase ,includeNumbers,includeSymbols){
+    
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const numberChars = "0123456789"
+    const symbolChars = "!@#$%^&*()_+-=";
+
+    let allowedChars = "";
+    let password = "";
+
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolChars : "";
+
+    if(length <= 0){
+        return `password lenght must be at least 1`;
+    }
+
+    if(allowedChars.length === 0){
+        return `(At least 1 set of character needs to be selected)`;
+    }
+
+    for(let i = 0; i < length; i++){
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
+    }
+
+    return password;
+}
+const passwordLength = 12;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols =true;
+
+const password = generatePassword(passwordLength,
+                                  includeLowercase,
+                                  includeUppercase,
+                                  includeNumbers,
+                                  includeSymbols);
+
+console.log(`Generated Password: ${password}`);
+
+
+//getter setter
+
+class Rectangle{
+    constructor(width,height){
+        this.width = width;
+        this.height =height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth;
+
+        }else{
+            console.error("Width must be a positive number");
+        }
+    }
+
+    set height(newHeight){
+        if(newHeight > 0){
+            this._height = newHeight;
+
+        }else{
+            console.error("Height must be a positive number");
+        }
+    }
+
+    get width(){
+        return this._width;
+    }
+    get height(){
+        return this._height;
+    }
+
+    get area(){
+        return this._width * this._height;
+    }
+}
+
+const rectangle = new Rectangle(4,4);
+
+rectangle.width = 5;
+rectangle.height = 6;
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+
+
+

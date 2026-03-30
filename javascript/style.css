@@ -77,3 +77,27 @@ button:hover{
 #res{
     font-size: 1.5em;
 }
+
+#container {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+input{
+    font-size: 2rem;
+    width: 150px;
+    text-align: center;
+    font-weight:bold;
+}
+
+#diceResult{
+    margin:25px;
+
+}
+
+#diceimgs img{
+    width:150px;
+    margin: 5px;
+}
